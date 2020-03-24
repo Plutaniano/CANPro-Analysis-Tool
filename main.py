@@ -2,7 +2,7 @@
 
 from classes import *
 from CSVparser import *
-from funcoes import *
+from functions import *
 import sys
 
 # Lê o primeiro argumento na linha de comando como input
