@@ -17,7 +17,7 @@ class Packet:
 		Packets.append(self)
 
 	def __repr__(self):
-		return "Packet[{}] {}#{}".format(self.index,self.PID.hex," ".join(self.payload.bytes)) 
+		return "({})[{}] {}#{}".format((str(self.time.sincestart)).zfill(5),self.index.zfill(5),self.PID.hex," ".join(self.payload.bytes)) 
 
 ### Classe Time
 # Variáveis para cálculo de tempo relativo
