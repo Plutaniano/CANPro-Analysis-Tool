@@ -17,7 +17,7 @@ class Packet:
 		Packets.append(self)
 
 	def __repr__(self):
-		return "({})[{}] {}#{}".format((str(self.time.sincestart)).zfill(5),self.index.zfill(5),self.PID.hex," ".join(self.payload.bytes)) 
+		return f'({self.time.sincestart:07.2f})[{self.index:05.0f}]  {self.PID.hex}  [{self.payload.size}]   {" ".join(self.payload.bytes)}' 
 
 ### Classe Time
 # Variáveis para cálculo de tempo relativo
@@ -41,7 +41,7 @@ class PID:
 	def __init__(self, pid):
 		self.hex = "0x" + pid[-3:]
 		self.dec = int(self.hex,16)
-		self.description = "" 		#Descrição do PID ToDo
+		self.description = "" 		#Descrição do PID TODO
 		PIDs[self.hex] = self
 
 	def __repr__(self):
@@ -55,10 +55,9 @@ class Payload:
 
 	def __repr__(self):
 		return " ".join(self.bytes)
+
+	
 		
-
-
-
 # Função para transformar o tempo absoluto fornecido pelo
 # CANPro em tempo relativo, em segundos
 def timeFix(string):
