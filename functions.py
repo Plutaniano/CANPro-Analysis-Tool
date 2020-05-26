@@ -51,7 +51,7 @@ def printPackets(PID):
 
 # Produz um gráfico dos payloads de pacotes com PID especificado
 # se não for especificado um começo e um fim,
-def plotPID(PID, interval):
+def plotPID(PID, interval=None):
 	plt.plot(getTimes(PID),get_bytes_all_PIDs(PID, interval))
 	printPackets(PID)
 	plt.show()
@@ -69,9 +69,7 @@ def print_Packets():
 	for i in Packets:
 		print(i)
 
-
-
-def getPIDstats():
+def PID_stats():
 	stats = {}
 	for i in list(PIDs.keys()):
 		stats[i] = 0
